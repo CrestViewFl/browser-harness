@@ -28,4 +28,3 @@ Workday career tenants use hosts such as `<tenant>.wdN.myworkdayjobs.com`. Field
 ## Completion
 
 Account creation, a successful upload and an intermediate saved step are not application submission. Recheck required answers and attachments, then verify the final portal confirmation and any independent application receipt. Keep credentials, verification codes and candidate-specific identifiers out of reusable notes and logs.
-

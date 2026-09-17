@@ -28,4 +28,6 @@
 - Optional race and ethnicity questions may appear conditionally. Do not infer one sensitive answer from another.
 - Re-read committed select labels, text values, checked choices and attachment filenames before submission. A populated input or click alone does not prove a saved choice.
 - A reCAPTCHA widget on the page does not itself mean a challenge is blocking submission. If a human-verification challenge actually appears, hand it to the user without bypassing it.
+- Submit can reveal an additional email-code step instead of navigating to a confirmation page. The observed flow sends an eight-character code and then requires another submit action. This intermediate state is not a submitted application.
+- Verification mail may come from `no-reply@us.greenhouse-mail.io`, not the `greenhouse.io` domain. Search by the security-code subject and employer as well as the sender, use only the intended mailbox, and never persist the code in notes or logs.
 - Submission requires an actual confirmation or receipt. Keep incomplete drafts distinct from submitted applications.

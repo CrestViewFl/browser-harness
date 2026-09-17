@@ -11,6 +11,7 @@
 - Modern forms use React Select combobox inputs (`[role="combobox"]`), not native `<select>` elements. Options use `[role="option"]` with IDs such as `react-select-<field-id>-option-<index>`.
 - Read only visible options: the phone component can also keep a hidden full country list in the DOM.
 - A typed search string is not a committed choice. After choosing an option, the searchable input can be empty while its surrounding `.select__container` displays the selected label. Verify that label after blur as well as the screenshot.
+- A multi-line question label can occupy the center of the select container. Clicking that center may focus the input without opening options. Locate the actual input or dropdown indicator and check `aria-expanded`; ArrowDown on the focused combobox opens its menu.
 - Location and school choices may load asynchronously. `document.readyState` does not indicate completion of their option requests. Wait for the matching visible option before selecting it.
 - Open the dropdown and re-measure its option geometry before clicking. If a filter yields no options even though the unfiltered list contains the desired item, clear the search with focused input selection plus Backspace, reopen the menu if needed, and scroll the option container. Do not insert an arbitrary value into hidden inputs.
 - Education taxonomy can be coarser than the candidate's actual degree. Use the closest truthful available category and keep the exact discipline in the attached resume.
@@ -30,4 +31,5 @@
 - A reCAPTCHA widget on the page does not itself mean a challenge is blocking submission. If a human-verification challenge actually appears, hand it to the user without bypassing it.
 - Submit can reveal an additional email-code step instead of navigating to a confirmation page. The observed flow sends an eight-character code and then requires another submit action. This intermediate state is not a submitted application.
 - Verification mail may come from `no-reply@us.greenhouse-mail.io`, not the `greenhouse.io` domain. Search by the security-code subject and employer as well as the sender, use only the intended mailbox, and never persist the code in notes or logs.
+- The email-code UI may use eight separate `#security-input-0` through `#security-input-7` controls, each with `maxlength="1"`. Preserve the code's exact case and use normal input actions. Verify completion without logging the values. An invalid-code error is not a submission receipt, and the observed form did not provide a resend button.
 - Submission requires an actual confirmation or receipt. Keep incomplete drafts distinct from submitted applications.

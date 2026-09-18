@@ -8,6 +8,8 @@ Workday career tenants use hosts such as `<tenant>.wdN.myworkdayjobs.com`. Field
 - Autofill can lead to `/apply/autofillWithResume` and an account-creation gate before the upload step.
 - With user authorization, successful account creation can sign the candidate in immediately. Verify the displayed account and application step; do not assume every tenant requires a separate verification email.
 - These forms are single-page applications. `document.readyState === 'complete'` can precede both the next step and its input fields. Wait for the intended step heading and expected controls, not just load completion.
+- After signing in again, check Candidate Home before starting a fresh application. Its active-applications table identifies saved drafts as Not Submitted. The row's Related Actions menu may provide View Application rather than a resume-edit action.
+- A saved draft can become read-only when the employer updates the posting. The application drawer explicitly says the job posting has been updated and offers View Job Posting. Preserve the draft; inspect the current posting and its normal application options instead of deleting a draft or assuming it was submitted.
 
 ## Resume upload and parsed fields
 

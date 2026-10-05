@@ -54,6 +54,12 @@ The observed read-only availability request is a batched tRPC GET:
 
 Reuse the date formats and identifiers from the current page's observed request; this is a private endpoint and can change. Busy entries can include `calendarId`, `calendarName`, `start`, `end`, and `title`. Some calendar integrations supply only free/busy data: the UI may say **Busy** while `title` is null. Report the known calendar and time range, and explicitly state that the event title is unavailable. Do not invent a title or edit a conflicting event while diagnosing it.
 
+## Event-specific calendar overrides
+
+Availability > Check for conflicts has a **Use Account Settings / Use Link Settings** selector. Link settings apply to that event only. Switching from Account to Link can initialize with every calendar off instead of copying inherited selections; record and restore all intended checks explicitly. Individual calendar toggles persist asynchronously, so wait and reopen the editor before comparing checked states.
+
+Calendar free/busy entries and Cal booking entries are separate: excluding a calendar does not remove an existing Cal booking conflict. When authorized to override a calendar hold, verify the remaining public slots and confirm the booked slot stays unavailable. A public no-availability message can mention a cutoff date even when a calendar block is the actual cause; inspect the saved range and troubleshooter before changing dates.
+
 ## Verification
 
 Reopen saved editor sections and the public booking page. Verify the intended timezone, selectable dates, and exact slot count. For an authorized test booking, check the saved booking, fixed location in its confirmation, cancellation state, and that the released slot returns to the public picker.

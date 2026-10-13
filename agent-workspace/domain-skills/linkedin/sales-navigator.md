@@ -68,6 +68,27 @@ state was `Connect — Pending`. `Saved` only means the lead was saved in Sales
 Navigator and is not evidence that an invitation was sent. If the result is
 unclear, re-read the profile state before considering a retry.
 
+## Accepted connections and message verification
+
+The standard connections route is `/mynetwork/invite-connect/connections/`.
+The observed default sort was Recently added, with a connection date on each
+card. Check this list when an accepted invitation has not appeared in the
+notification feed; an absent notification is not proof of no acceptance.
+
+Each card's Message link has a recipient-specific accessible label such as
+`Send a message to <name>`. Follow the actual link supplied by the page rather
+than constructing recipient identifiers. It opens the messaging composer and
+may resolve to an existing conversation. Inspect the recipient, connection
+degree and any history before typing.
+
+In the observed standard messaging UI, `.msg-convo-wrapper` contains the
+active conversation and `[contenteditable="true"][role="textbox"]` is the
+message editor. Scope to the active conversation and confirm only one intended
+recipient. After an authorized send, verify the sender, recipient and exact
+message in the conversation, an empty editor and the resulting
+`/messaging/thread/<thread-id>/` route. Text in the composer alone is not send
+evidence. Preserve an uncertain outcome for inspection instead of retrying.
+
 ## Editing the account owner's profile
 
 On the standard `/in/<profile-slug>` route, Edit profile and Edit about open

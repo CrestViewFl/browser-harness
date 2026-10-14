@@ -16,6 +16,13 @@ the cards currently in the DOM may be only part of the page. Read the visible
 cards, scroll the results area, then capture the newly rendered cards. Do not
 treat a single DOM count as the page's total or assume offscreen cards persist.
 Loading the route is not proof that filters and results have finished updating.
+If placeholders remain, use ordinary wheel scrolling over the visible results
+pane and inspect the newly rendered cards. Changing a guessed container's
+scroll offset is not evidence that the application loaded the next cards.
+
+A search headcount filter is a discovery aid, not current staffing proof. A
+company page's company-size field can disagree with the filter match. Counts
+of associated LinkedIn member profiles are a separate measure, not headcount.
 
 ## Filters and typeahead
 
@@ -63,6 +70,12 @@ without a note is intended. Inspect the recipient and dialog contents before
 the final action. Send Invitation sends externally and requires the user's
 authorization; opening the menu or dialog does not itself authorize sending.
 
+Some recipients require an email address in the invitation dialog, exposed as
+a textbox labeled `<name>'s email is required to connect`. Treat this as a
+recipient-specific requirement. If a verified address is unavailable, cancel
+and record that no invitation was sent; do not guess an address or treat the
+presence of Send Invitation as proof that submission is possible.
+
 After sending, verify the profile's connection state. The observed authoritative
 state was `Connect — Pending`. `Saved` only means the lead was saved in Sales
 Navigator and is not evidence that an invitation was sent. If the result is
@@ -79,7 +92,10 @@ Each card's Message link has a recipient-specific accessible label such as
 `Send a message to <name>`. Follow the actual link supplied by the page rather
 than constructing recipient identifiers. It opens the messaging composer and
 may resolve to an existing conversation. Inspect the recipient, connection
-degree and any history before typing.
+degree and any history before typing. A Message link can open a docked overlay
+while other old overlays remain visible. Navigating the same task tab to the
+actual composer href provides a full conversation view; verify its selected
+recipient again before entering text.
 
 In the observed standard messaging UI, `.msg-convo-wrapper` contains the
 active conversation and `[contenteditable="true"][role="textbox"]` is the
